@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 		let newSearch = promise(name, symptom);
 		$('#result').empty();
-		debugger;
+		// debugger;
 		newSearch.then(function (response) {
 				let body = JSON.parse(response);
 				if (body.data.length < 1) {
@@ -20,7 +20,7 @@ $(document).ready(function () {
 				}
 			},
 			function (error) {
-				$('#result').text("There was an error processing your request. Please try again.");
+				$('#result').text(`There was an error processing your request. Please try again (${error.message})`);
 			}
 		);
 	});
